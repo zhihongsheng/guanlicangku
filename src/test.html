@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.box {
+			width: 300px;
+			height: 200px;
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<button class="del">删除</button>
+	<button class="add">添加</button>
+
+	<div class="container">
+		<div class="box"></div>
+	</div>
+
+	<script src="lib/jquery/jquery-1.12.4.min.js"></script>
+	<script>
+		// $(".box").on("click", function(){});
+		// $(".box").click(function(){});
+		$(".box").bind("click", function(){
+			console.log("click box")
+		});
+
+		var elem = null;
+
+		$(".del").click(function(){
+			elem = $(".box").detach();
+		});
+
+		$(".add").click(function(){
+			$(".container").prepend(elem);
+		});
+	</script>
+</body>
+</html>
